@@ -1,0 +1,12 @@
+npm-debug.log*
+*.log
+.npm
+node_modules
+.idea*
+report.xml
+config/local*
+android/
+*.tar.gz
+packageMocksSpec.js
+package-stubs.js
+.DS_Store

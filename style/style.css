@@ -1,0 +1,30 @@
+.accounts-ui__formset{
+  max-width: 500px;
+  margin: 0 auto;
+}
+.accounts-ui__button{
+  margin-bottom: 16px;
+}
+.accounts-ui__field,
+.accounts-ui__radio{
+  margin-bottom: 16px;
+}
+.accounts-ui__separator{
+  margin: 0 0 16px 0;
+  border: 0;
+  border-bottom: 1px solid gray;
+}
+.accounts-ui__form-buttons{
+  text-align: right;
+}
+.accounts-ui__button_variant_form{
+  display: inline-block;
+  margin-right: 16px;
+  width: auto;
+}
+.accounts-ui__button_variant_form:last-of-type{
+  margin-right: 0;
+}
+.accounts-ui__button_variant_dialog{
+  margin-bottom: 0;
+}
