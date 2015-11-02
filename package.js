@@ -1,13 +1,13 @@
 Package.describe({
   summary: 'React Material UI components for accounts.',
-  version: '0.0.1',
+  version: '0.0.2',
   name: 'qnub:accounts-react-material-ui',
   git: 'https://github.com/qnub/meteor-accounts-react-material-ui.git',
 });
 
 Npm.depends({
   'externalify': '0.1.0',
-  'material-ui': '0.13.0'
+  'material-ui': '0.13.1'
 });
 
 DEFAULT_LANGUAGES = ['ar', 'zh_cn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es',
