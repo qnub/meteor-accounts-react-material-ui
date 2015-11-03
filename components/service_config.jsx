@@ -105,17 +105,14 @@ Accounts.ui.ServiceConfig = React.createClass({
     </div>;
 
     let actions = [
-      <MUI.FlatButton
-        key="cancelSaveConfiguration"
-        label={t9n('I\'ll do this later')}
-        secondary={true}
-        onTouchTap={this.cancel} />,
-      <MUI.FlatButton
-        key="saveConfiguration"
-        label={t9n('Save Configuration')}
-        primary={true}
-        onTouchTap={this.save}
-        disabled={this.state.updateDisabled}/>
+      {
+        text: t9n('I\'ll do this later')
+      },
+      {
+        text: t9n('Save Configuration'),
+        onTouchTap: this.save,
+        disabled: this.state.updateDisabled
+      }
     ];
 
     return(<div

@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'React Material UI components for accounts.',
-  version: '0.0.2',
+  version: '0.0.3',
   name: 'qnub:accounts-react-material-ui',
   git: 'https://github.com/qnub/meteor-accounts-react-material-ui.git',
 });
