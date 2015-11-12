@@ -10,7 +10,7 @@ Accounts.ui.LoginServices = React.createClass({
 
   render(){
     let form = 'services';
-    let options = {};
+    const options = {};
 
     if (this.props.redirect){
       options.redirect = this.props.redirect;
@@ -18,7 +18,7 @@ Accounts.ui.LoginServices = React.createClass({
 
     if (this.data.services && this.data.configurationLoaded){
       form = this.data.services.map((service, index)=>{
-        let serviceOptions = {};
+        const serviceOptions = {};
 
         return(<Accounts.ui.LoginService
           key={index}

@@ -12,7 +12,8 @@ Accounts.ui.ServiceConfig = React.createClass({
 
   getInitialState(){
     return {
-      updateDisabled: true
+      updateDisabled: true,
+      dialogOpen: false
     }
   },
 
@@ -67,18 +68,22 @@ Accounts.ui.ServiceConfig = React.createClass({
   },
 
   show(){
-    this.refs.dialog.show();
+    this.setState({
+      dialogOpen: true
+    });
   },
 
   cancel(){
-    this.refs.dialog.dismiss();
+    this.setState({
+      dialogOpen: false
+    });
   },
 
   render(){
     let blazeForm = '';
 
     if (!this.props.template){
-      let template = this.blazeTemplate();
+      const template = this.blazeTemplate();
 
       if (template && Blaze){
         blazeForm = <div
@@ -87,7 +92,7 @@ Accounts.ui.ServiceConfig = React.createClass({
       }
     }
 
-    let fields = this.configurationFields().map((field, index)=>{
+    const fields = this.configurationFields().map((field, index)=>{
       return(<div
         key={index}
         className="accounts-ui__field accounts-ui__field_variant_config">
@@ -99,14 +104,15 @@ Accounts.ui.ServiceConfig = React.createClass({
       </div>);
     });
 
-    let template = <div
+    const template = <div
       key="externalTemplate">
         {this.props.template}
     </div>;
 
-    let actions = [
+    const actions = [
       {
-        text: t9n('I\'ll do this later')
+        text: t9n('I\'ll do this later'),
+        onTouchTap: this.cancel
       },
       {
         text: t9n('Save Configuration'),
@@ -121,9 +127,9 @@ Accounts.ui.ServiceConfig = React.createClass({
         ref="dialog"
         title={`${t9n('Configure')} ${this.props.service.name}`}
         actions={actions}
-        modal={true}
         autoDetectWindowHeight={true}
-        autoScrollBodyContent={true}>
+        autoScrollBodyContent={true}
+        open={this.state.dialogOpen}>
           {blazeForm}
           {template}
           <p>

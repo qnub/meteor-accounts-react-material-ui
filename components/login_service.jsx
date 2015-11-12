@@ -34,16 +34,16 @@ Accounts.ui.LoginService = React.createClass({
   },
 
   handleLogin(event){
-    let serviceName = this.props.service.name;
+    const serviceName = this.props.service.name;
 
     // XXX Service providers should be able to specify their
     // `Meteor.loginWithX` method name.
-    let loginWithService = Meteor["loginWith" +
+    const loginWithService = Meteor["loginWith" +
                                   (serviceName === 'meteor-developer' ?
                                    'MeteorDeveloperAccount' :
                                    capitalize(serviceName))];
 
-    let options = {}; // use default scope unless specified
+    const options = {}; // use default scope unless specified
 
     if (Accounts.ui._options.requestPermissions[serviceName]){
       options.requestPermissions = Accounts.ui._options.requestPermissions[serviceName];
@@ -77,7 +77,7 @@ Accounts.ui.LoginService = React.createClass({
 
   render(){
     let form = 'service';
-    let serviceName = this.props.service.name;
+    const serviceName = this.props.service.name;
 
     if (this.configured()){
       form = <MUI.RaisedButton

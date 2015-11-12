@@ -2,7 +2,7 @@ Accounts.ui.DisplayName = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData(){
-    let user = Meteor.user();
+    const user = Meteor.user();
     let username = '';
 
     if (user){

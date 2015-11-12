@@ -1,13 +1,13 @@
 Accounts.ui.LoginFormSet = React.createClass({
   render(){
-    let options = {};
+    const options = {};
 
     if (this.props.redirect){
       options.redirect = this.props.redirect;
     }
 
-    let services = getLoginServices() && !Meteor.user() ? <Accounts.ui.LoginServices {...options}/> : '';
-    let form = Package['accounts-password'] ? <Accounts.ui.LoginForm {...options}/> : '';
+    const services = getLoginServices() && !Meteor.user() ? <Accounts.ui.LoginServices {...options}/> : '';
+    const form = Package['accounts-password'] ? <Accounts.ui.LoginForm {...options}/> : '';
 
     return(<div
       className="accounts-ui__formset">

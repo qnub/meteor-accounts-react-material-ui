@@ -154,7 +154,7 @@ Accounts.ui._loginForm = React.createClass({
   },
 
   fields() {
-    let loginFields = [];
+    const loginFields = [];
 
     if (this.state.formVariant == LOGIN_FORM_STATES.SIGN_IN){
       if(_.contains(["USERNAME_AND_EMAIL", "USERNAME_AND_OPTIONAL_EMAIL"],
@@ -233,11 +233,11 @@ Accounts.ui._loginForm = React.createClass({
   },
 
   signIn(){
-    let username = this.refs.username ? this.refs.username.getValue().trim() : null;
-    let email = this.refs.email ? this.refs.email.getValue().trim() : null;
-    let usernameOrEmail = this.refs.usernameOrEmail ? this.refs.usernameOrEmail.getValue().trim() : null;
+    const username = this.refs.username ? this.refs.username.getValue().trim() : null;
+    const email = this.refs.email ? this.refs.email.getValue().trim() : null;
+    const usernameOrEmail = this.refs.usernameOrEmail ? this.refs.usernameOrEmail.getValue().trim() : null;
     // notably not trimmed. a password could (?) start or end with a space
-    let password = this.refs.password.getValue();
+    const password = this.refs.password.getValue();
 
     let loginSelector;
 
@@ -251,7 +251,7 @@ Accounts.ui._loginForm = React.createClass({
       if (!this.validateEmail(email)){
         return;
       } else {
-        loginSelector = {email: email};
+        loginSelector = {email};
       }
     } else if (usernameOrEmail !== null) {
       // XXX not sure how we should validate this. but this seems good enough (for now),
@@ -276,12 +276,12 @@ Accounts.ui._loginForm = React.createClass({
   },
 
   signUp(){
-    let options = {}; // to be passed to Accounts.createUser
+    const options = {}; // to be passed to Accounts.createUser
 
-    let username = this.refs.username ? this.refs.username.getValue().trim() : null;
-    let email = this.refs.email ? this.refs.email.getValue().trim() : null;
+    const username = this.refs.username ? this.refs.username.getValue().trim() : null;
+    const email = this.refs.email ? this.refs.email.getValue().trim() : null;
     // notably not trimmed. a password could (?) start or end with a space
-    let password = this.refs.password.getValue();
+    const password = this.refs.password.getValue();
 
     if (username !== null) {
       if (!this.validateUsername(username)){
@@ -326,7 +326,7 @@ Accounts.ui._loginForm = React.createClass({
       return;
     }
 
-    let email = this.refs.email ? this.refs.email.getValue().trim() : '';
+    const email = this.refs.email ? this.refs.email.getValue().trim() : '';
 
     if (email.indexOf('@') !== -1) {
       this.setState({waiting: true});
@@ -346,10 +346,10 @@ Accounts.ui._loginForm = React.createClass({
   },
 
   passwordChange(){
-    let oldPassword = this.refs.password.getValue();
+    const oldPassword = this.refs.password.getValue();
 
     // notably not trimmed. a password could (?) start or end with a space
-    let password = this.refs.newPassword.getValue();
+    const password = this.refs.newPassword.getValue();
 
     if (!this.validatePassword(password)){
       this.showMessage(t9n("error.pwTooShort"));
@@ -386,7 +386,9 @@ Accounts.ui._loginForm = React.createClass({
   },
 
   render(){
-    let signUpSwitch = this.showCreateAccountLink() ?
+    // console.log(this.props.user);
+
+    const signUpSwitch = this.showCreateAccountLink() ?
       <div
         key="signUpSwitch"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -397,7 +399,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let signInSwitch = (this.state.formVariant == LOGIN_FORM_STATES.SIGN_UP
+    const signInSwitch = (this.state.formVariant == LOGIN_FORM_STATES.SIGN_UP
                         || this.state.formVariant == LOGIN_FORM_STATES.PASSWORD_RESET) ?
       <div
         key="signInSwitch"
@@ -409,7 +411,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let passwordResetSwitch = this.showForgotPasswordLink() ?
+    const passwordResetSwitch = this.showForgotPasswordLink() ?
       <div
         key="passwordResetSwitch"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -420,7 +422,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let signInButton = this.state.formVariant == LOGIN_FORM_STATES.SIGN_IN ?
+    const signInButton = this.state.formVariant == LOGIN_FORM_STATES.SIGN_IN ?
       <div
         key="signInButton"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -433,7 +435,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let signUpButton = this.state.formVariant == LOGIN_FORM_STATES.SIGN_UP ?
+    const signUpButton = this.state.formVariant == LOGIN_FORM_STATES.SIGN_UP ?
       <div
         key="signUpButton"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -446,7 +448,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let passwordResetButton = this.state.formVariant == LOGIN_FORM_STATES.PASSWORD_RESET ?
+    const passwordResetButton = this.state.formVariant == LOGIN_FORM_STATES.PASSWORD_RESET ?
       <div
         key="passwordResetButton"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -459,7 +461,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let passwordChangeButton = this.showPasswordChangeForm() ?
+    const passwordChangeButton = this.showPasswordChangeForm() ?
       <div
         key="passwordChangeButton"
         className="accounts-ui__button accounts-ui__button_variant_form">
@@ -472,7 +474,7 @@ Accounts.ui._loginForm = React.createClass({
       </div>
       : '';
 
-    let signOutButton = this.props.user ?
+    const signOutButton = this.props.user ?
       <div
         key="signOutButton"
         className="accounts-ui__button accounts-ui__button_variant_form">

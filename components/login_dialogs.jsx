@@ -2,25 +2,28 @@ Accounts.ui.Dialogs = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData(){
-    let resetPasswordToken = Meteor.isClient ? Accounts._loginButtonsSession.get('resetPasswordToken') : undefined;
+    const resetPasswordToken = Meteor.isClient ? Accounts._loginButtonsSession.get('resetPasswordToken') : undefined;
 
-    this.show(resetPasswordToken);
-
-    return {
-      resetPasswordToken: resetPasswordToken
-    };
+    return {resetPasswordToken};
   },
 
   getInitialState(){
     return({
       message: '',
-      updateDisabled: true
+      updateDisabled: true,
+      dialogOpen: false
     });
   },
 
+  componentWillUpdate(){
+    this.show(this.data.resetPasswordToken);
+  },
+
   show(resetPasswordToken){
-    if (this.isMounted() && resetPasswordToken){
-      this.refs.dialog.show();
+    if (this.isMounted() && !this.state.dialogOpen && resetPasswordToken){
+      this.setState({
+        dialogOpen: true
+      });
     }
   },
 
@@ -33,7 +36,7 @@ Accounts.ui.Dialogs = React.createClass({
   },
 
   resetPassword() {
-    let newPassword = this.refs.newPassword.getValue();
+    const newPassword = this.refs.newPassword.getValue();
 
     if (!this.validatePassword(newPassword)){
       this.showMessage(t9n("error.pwTooShort"));
@@ -66,7 +69,10 @@ Accounts.ui.Dialogs = React.createClass({
 
   cancel(){
     Accounts._loginButtonsSession.set('resetPasswordToken', null);
-    this.refs.dialog.dismiss();
+
+    this.setState({
+      dialogOpen: false
+    });
   },
 
   updateDisabled() {
@@ -76,24 +82,17 @@ Accounts.ui.Dialogs = React.createClass({
   },
 
   render(){
-    let actions = [
-      <div
-        key="cancelChangePassword"
-        className="accounts-ui__button accounts-ui__button_variant_form accounts-ui__button_variant_dialog">
-          <MUI.FlatButton
-            label={t9n('cancel')}
-            secondary={true}
-            onTouchTap={this.cancel} />
-      </div>,
-      <div
-        key="changePassword"
-        className="accounts-ui__button accounts-ui__button_variant_form accounts-ui__button_variant_dialog">
-          <MUI.FlatButton
-            label={t9n('changePassword')}
-            primary={true}
-            onTouchTap={this.resetPassword}
-            disabled={this.state.updateDisabled}/>
-      </div>
+
+    const actions = [
+      {
+        text: t9n('cancel'),
+        onTouchTap: this.cancel
+      },
+      {
+        text: t9n('changePassword'),
+        onTouchTap: this.resetPassword,
+        disabled: this.state.updateDisabled
+      }
     ];
 
     return(<div className="accounts-ui__dialogs">
@@ -101,9 +100,9 @@ Accounts.ui.Dialogs = React.createClass({
         ref="dialog"
         title={t9n('changePassword')}
         actions={actions}
-        modal={true}
         autoDetectWindowHeight={true}
-        autoScrollBodyContent={true}>
+        autoScrollBodyContent={true}
+        open={this.state.dialogOpen}>
           <div className="accounts-ui__field">
             <MUI.TextField
               key="newPassword"

@@ -1,13 +1,13 @@
 Package.describe({
   summary: 'React Material UI components for accounts.',
-  version: '0.0.3',
+  version: '0.13.2',
   name: 'qnub:accounts-react-material-ui',
   git: 'https://github.com/qnub/meteor-accounts-react-material-ui.git',
 });
 
 Npm.depends({
   'externalify': '0.1.0',
-  'material-ui': '0.13.1'
+  'material-ui': '0.13.2'
 });
 
 DEFAULT_LANGUAGES = ['ar', 'zh_cn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es',
@@ -31,8 +31,8 @@ Package.onUse(function(api, where) {
     'underscore',
     'accounts-base',
     'ecmascript',
-    'react@0.14.1',
-    'cosmos:browserify@0.8.1',
+    'react@0.14.1_1',
+    'cosmos:browserify@0.8.3',
     'qnub:t9n@0.0.1'
   ]);
 
