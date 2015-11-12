@@ -15,6 +15,12 @@ Run:
 
     meteor add qnub:accounts-react-material-ui
 
+Run on client side:
+
+    injectTapEventPlugin();
+
+To enable `onTouchTap` event, if you already don't.
+
 ## Config
 
 Supports standard [Accounts.ui.config](http://docs.meteor.com/#/full/accounts_ui_config).
