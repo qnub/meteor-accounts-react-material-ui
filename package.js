@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'React Material UI components for accounts.',
-  version: '0.13.2_1',
+  version: '0.13.3',
   name: 'qnub:accounts-react-material-ui',
   git: 'https://github.com/qnub/meteor-accounts-react-material-ui.git',
 });
@@ -8,7 +8,7 @@ Package.describe({
 Npm.depends({
   'externalify': '0.1.0',
   'react-tap-event-plugin': '0.2.1',
-  'material-ui': '0.13.2'
+  'material-ui': '0.13.3'
 });
 
 DEFAULT_LANGUAGES = ['ar', 'zh_cn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es',
@@ -32,9 +32,10 @@ Package.onUse(function(api, where) {
     'underscore',
     'accounts-base',
     'ecmascript',
+    'templating',  // required to auto inslude oauth services forms
     'react@0.14.1_1',
-    'cosmos:browserify@0.8.3',
-    'qnub:t9n@0.0.1'
+    'cosmos:browserify@0.9.1',
+    'qnub:t9n@0.0.2'
   ]);
 
   api.imply('accounts-base');
