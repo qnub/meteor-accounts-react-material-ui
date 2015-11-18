@@ -2,12 +2,7 @@
 
 Meteor sign up and sign in [react](http://facebook.github.io/react/index.html) components (and much more!) with [material ui](http://material-ui.com/#/home).
 
-This package depends on:
-[accounts-base](https://github.com/meteor/meteor/tree/devel/packages/accounts-base)
-[react](https://atmospherejs.com/meteor/react)
-[cosmos:browserify](https://atmospherejs.com/cosmos/browserify)
-
-and based on [accounts-ui-unstyled](https://github.com/meteor/meteor/tree/devel/packages/accounts-ui-unstyled);
+This package based on [accounts-ui-unstyled](https://github.com/meteor/meteor/tree/devel/packages/accounts-ui-unstyled).
 
 ## Install
 
@@ -55,7 +50,7 @@ Color settings have same meanings as for [RaisedButton Material UI](http://mater
 
 Because dropdown isn't very good solution i prefer you to use separate views and routes for different login states and direct user depending on it. Example:
 
-    {Meteor.userId() ? <MUI.RaisedButton label="Logout" onClick={Meteor.logout()} /> : <MUI.RaisedButton label="Login" linkButton={true} href="/login" />}
+    {Meteor.userId() ? <MUI.RaisedButton label="Logout" onClick={Meteor.logout} /> : <MUI.RaisedButton label="Login" linkButton={true} href="/login" />}
 
 Then on `/login` page use `<Accounts.ui.LoginFormSet redirect={handleLogin}/>` component to display login form. This form displays different components depending of configuration and current state. For example for authenticated user it shows password change form.
 
