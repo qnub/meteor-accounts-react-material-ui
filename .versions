@@ -39,7 +39,7 @@ npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
 promise@0.5.1
-qnub:accounts-react-material-ui@0.13.3
+qnub:accounts-react-material-ui@0.13.3_1
 qnub:t9n@0.0.2
 random@1.0.5
 rate-limit@1.0.0
