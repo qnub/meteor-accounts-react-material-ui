@@ -428,7 +428,7 @@ Accounts.ui._loginForm = React.createClass({
         className="accounts-ui__button accounts-ui__button_variant_form">
           <MUI.RaisedButton
             ref="signInButton"
-            primary={true}
+            secondary={true}
             label={t9n('signIn')}
             disabled={this.state.waiting}
             onTouchTap={this.signIn}/>
@@ -441,7 +441,7 @@ Accounts.ui._loginForm = React.createClass({
         className="accounts-ui__button accounts-ui__button_variant_form">
           <MUI.RaisedButton
             ref="signUpButton"
-            primary={true}
+            secondary={true}
             label={t9n('signUp')}
             disabled={this.state.waiting}
             onTouchTap={this.signUp}/>
@@ -454,7 +454,7 @@ Accounts.ui._loginForm = React.createClass({
         className="accounts-ui__button accounts-ui__button_variant_form">
           <MUI.RaisedButton
             ref="passwordResetButton"
-            primary={true}
+            secondary={true}
             label={t9n('emailResetLink')}
             disabled={this.state.waiting}
             onTouchTap={this.passwordReset}/>
@@ -467,7 +467,7 @@ Accounts.ui._loginForm = React.createClass({
         className="accounts-ui__button accounts-ui__button_variant_form">
           <MUI.RaisedButton
             ref="passwordChangeButton"
-            primary={true}
+            secondary={true}
             label={t9n('changePassword')}
             disabled={this.state.waiting}
             onTouchTap={this.passwordChange}/>

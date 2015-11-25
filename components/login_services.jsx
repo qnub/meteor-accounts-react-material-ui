@@ -18,7 +18,6 @@ Accounts.ui.LoginServices = React.createClass({
 
     if (this.data.services && this.data.configurationLoaded){
       form = this.data.services.map((service, index)=>{
-        console.log(service);
         const serviceOptions = {};
 
         return(<Accounts.ui.LoginService
