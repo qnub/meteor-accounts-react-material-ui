@@ -9,7 +9,7 @@ Accounts.ui.LoginServices = React.createClass({
   },
 
   render(){
-    let form = 'services';
+    let form = null;
     const options = {};
 
     if (this.props.redirect){
@@ -18,6 +18,7 @@ Accounts.ui.LoginServices = React.createClass({
 
     if (this.data.services && this.data.configurationLoaded){
       form = this.data.services.map((service, index)=>{
+        console.log(service);
         const serviceOptions = {};
 
         return(<Accounts.ui.LoginService
@@ -25,6 +26,10 @@ Accounts.ui.LoginServices = React.createClass({
           service={service}
           {..._.extend(options, serviceOptions)}/>);
       });
+    }
+
+    if (!form || !form.length){
+      return(null);
     }
 
     return(<div

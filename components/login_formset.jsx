@@ -6,13 +6,13 @@ Accounts.ui.LoginFormSet = React.createClass({
       options.redirect = this.props.redirect;
     }
 
-    const services = getLoginServices() && !Meteor.user() ? <Accounts.ui.LoginServices {...options}/> : '';
-    const form = Package['accounts-password'] ? <Accounts.ui.LoginForm {...options}/> : '';
+    const services = getLoginServices().length && !Meteor.user() ? <Accounts.ui.LoginServices {...options}/> : null;
+    const form = Package['accounts-password'] ? <Accounts.ui.LoginForm {...options}/> : null;
 
     return(<div
       className="accounts-ui__formset">
         {services}
-        {form && services ? <hr className="accounts-ui__separator"/> : ''}
+        {form && services ? <hr className="accounts-ui__separator"/> : null}
         {form}
     </div>);
   }

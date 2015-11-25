@@ -6,7 +6,11 @@ This package based on [accounts-ui-unstyled](https://github.com/meteor/meteor/tr
 
 ## Install
 
-Run:
+Install at least one accounts login service like `accounts-password`, `accounts-facebook` or any other:
+
+    meteor add accounts-password
+
+Install package:
 
     meteor add qnub:accounts-react-material-ui
 
@@ -15,6 +19,8 @@ Run on client side:
     injectTapEventPlugin();
 
 To enable `onTouchTap` event, if you already don't.
+
+Also you should have installed and configured [material ui](http://material-ui.com/#/home) in your project. If you don't — try some of [existed packages](https://atmospherejs.com/?q=material%20ui).
 
 ## Config
 
@@ -67,6 +73,10 @@ Where optional `redirect` property can be string target URL or function like thi
     /enroll-account
 
 Also you need to place `<Accounts.ui.Dialogs />` (it's invisible component with popup dialogs) in your root (with `/` URL) page or even in main layout to allow user do restore password, verify email and other two-step things.
+
+## WiKi
+
+Additional info can be obtained from [WiKi on GitHub](https://github.com/qnub/meteor-accounts-react-material-ui/wiki).
 
 ## Components
 
